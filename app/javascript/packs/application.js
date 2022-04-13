@@ -17,4 +17,4 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 window.$ = window.jQuery = require('jquery');
-require('packs/raty')
+require('raty-js')
