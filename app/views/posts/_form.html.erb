@@ -16,12 +16,22 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field" id="star">
     <%= form.label :score %>
-    <%= form.number_field :score %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+
+    scoreName: 'post[score]',
+    half: false,
+  });
+  </script>
 <% end %>

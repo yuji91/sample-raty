@@ -15,7 +15,17 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.score %></td>
+        <td><div id="star-rate<%= post.id %>"></div></td>
+        <script>
+          $('#star-rate<%= post.id %>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            half      : false,
+            readOnly: true,
+            score: <%= post.score %>,
+          });
+        </script>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +37,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
